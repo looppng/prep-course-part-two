@@ -16,6 +16,24 @@
  * console.log('buzz')
  */
 
-function fizzBuzz(n: number) {}
+    //  Console.log nr from to n
+    //  multiples of 3 (3,6,9,12...) prints fizz replacing the printer nr
+    //  multiples of 5 (5,10,15...) prints buzz replacing the nr
+    //  multiples of 3 and 5 print fizzbuzz
+function fizzBuzz(n: number) {
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+        console.log('fizzbuzz');
+        } else if (i % 3 === 0) {
+        console.log('fizz');
+        } else if (i % 5 === 0) {
+        console.log('buzz');
+        } else {
+        console.log(i);
+        }
+    }
+}
+    
+    
 
 export { fizzBuzz };
