@@ -9,13 +9,11 @@
  * isEven(4) === true
  * isEven(3) === false
  */
+const even_digits = [2,4,6,8];
 
-function isEven(n: number): boolean {
-    if (!(n & 1)) {
-        return true;
-    } else {
-        return false;
-    }
+function isEven(n: number) {
+    const firstHalf = n.toString().split('.')[0];
+    const lastDigit = firstHalf[firstHalf.length-1];
+   return even_digits.includes(+lastDigit)
 }
-
 export { isEven };
