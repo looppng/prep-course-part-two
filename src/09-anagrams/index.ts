@@ -12,6 +12,10 @@
  * anagrams('Hi there', 'Bye there') === false
  */
 
-function anagrams(stringA: string, stringB: string) {}
+function anagrams(stringA: string, stringB: string) {
+    const CleanStringA = stringA.replace(/[\W_]+/g, '').toLowerCase().split('').sort().join('')
+    const CleanStringB = stringB.replace(/[\W_]+/g, '').toLowerCase().split('').sort().join('')
+    return CleanStringA === CleanStringB;
+}
 
 export { anagrams };
