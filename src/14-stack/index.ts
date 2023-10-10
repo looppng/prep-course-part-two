@@ -14,12 +14,32 @@
  * s.pop(); // returns 1
  */
 
-class Stack {
-  push(n: number) {}
+class Stack<T> {
+  private items: T[] = []
 
-  pop() {}
 
-  peek() {}
+  push(item: T):void {
+    this.items.push(item)
+  }
+
+  pop(): T | undefined {
+    return this.items.pop();
+  }
+
+  peek(): T | undefined {
+    if (this.isEmpty()) {
+      return undefined;
+    }
+    return this.items[this.items.length -1];
+  }
+
+  isEmpty(): boolean {
+    return this.items.length === 0;
+  }
+
+  clear(): void {
+    this.items = [];
+  }
 }
 
 export { Stack };

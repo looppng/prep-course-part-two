@@ -13,9 +13,13 @@
  */
 
 class Queue {
-  add(n: number) {}
-
-  remove() {}
+  private elements: number[] = [];
+  add(n: number) {
+    this.elements.push(n);
+  }
+  remove():number | undefined {
+    return this.elements.shift();
+  }
 }
 
 export { Queue };
