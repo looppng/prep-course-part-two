@@ -28,11 +28,22 @@
  */
 
 class PhoneNumber {
-  constructor(input: string) {}
+  constructor(private input: string) {}
 
-  number() {
-    return "";
+  number(): string | null {
+    const cleanedNumber = this.input.replace(/[^0-9]/g, '');
+
+    if (cleanedNumber.length === 11) {
+      if (cleanedNumber.startsWith('1') && /^[2-9]\d{9}$/.test(cleanedNumber.slice(1))) {
+        return cleanedNumber.slice(1);
+      } else {
+        return null;
+      }
+    }
+
+    return /^[2-9]\d{9}$/.test(cleanedNumber) ? cleanedNumber : null;
   }
 }
 
 export { PhoneNumber };
+
