@@ -10,7 +10,26 @@
  */
 
 class Words {
-  count(str: string) {}
+  private wordCountMap: Map<string, number>;
+
+  constructor() {
+      this.wordCountMap = new Map<string, number>();
+  }
+
+  countWords(phrase: string): void {
+      const words = phrase.split('');
+
+      for (const word of words) {
+          const cleanedWord = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').toLowerCase();
+          const count = this.wordCountMap.get(cleanedWord) || 0;
+          this.wordCountMap.set(cleanedWord, count + 1);
+      }
+  }
+
+  getWordCountMap(): Map<string, number> {
+      return this.wordCountMap;
+  }
 }
 
 export { Words };
+
